@@ -41,8 +41,7 @@ def bits_indexes(bits: List[int], a_bit: int):
     return ret
 
 class Report:
-
-    def __init__(self, rows):
+    def __init__(self, rows: List[str]):
         self.rows = rows
 
     @property
@@ -61,7 +60,7 @@ class Report:
         """Return a row at index"""
         return self.rows[index]
 
-    def with_rows(self, row_indexes):
+    def with_rows(self, row_indexes: List[int]):
         """Return a new Report with row indexes"""
         rows = []
         for idx, row in enumerate(self.rows):
@@ -69,6 +68,7 @@ class Report:
                 rows.append(row)
         return Report(rows)
 
+# --------------------
 r = Report(lines)
 
 gamma_rate_bits = []
@@ -83,7 +83,6 @@ print(bits_to_int(gamma_rate_bits), bits_to_int(epsilon_rate_bits))
 print(bits_to_int(gamma_rate_bits) * bits_to_int(epsilon_rate_bits))
 
 # --------------------
-
 r = Report(lines)
 
 def calc(r: Report, f):
